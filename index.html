@@ -23,21 +23,22 @@
   <!-- Plugin CSS -->
   <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
   <link rel="stylesheet" href="css/intlTelInput.css">
+  <link rel="stylesheet" href="css/emojionearea.min.css">
   <!-- Custom styles for this template -->
   <link href="css/smswhats.min.css" rel="stylesheet">
   <script type="text/javascript">
             function capturar(){
 
                 var numeroId=document.getElementById("phone").value;
-                //var codigoid=document.getElementById("codigo").value;
+                
                 var mensajeId=document.getElementById("mensaje").value;
-                //numeroid=codigoid+numeroId;
+                
                 //Reemplazar saltos de linea 
                 var sms = mensajeId.replace("\n","%0a%0a"); 
                 
                 // Reemplazar los especios en blanco de la caja de texto
                 var smsconvertido = sms.replace(/ /g,"%20"); 
-                
+                //document.write(smsconvertido);
                 //Crear y abrir en una nueva pestaña 
                 window.open('https://api.whatsapp.com/send?phone='+numeroId.substring(1)+'&text='+smsconvertido);
                 
@@ -57,7 +58,7 @@
             <div class="device-container">
               <div class="device-mockup ipad_pro portrait gray">
                 <div class="device">
-                  <div class="screen" style="background-color:powderblue;  ">
+                  <div class="screen" style="background-image: url(img/fondo.png);" >
                   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -82,14 +83,16 @@
     </div>
 
                     <form>
-                      <div class="form-group ">
-                        <div class="input-group-prepend mb-3" style="padding-top:30px;padding-left: 20px;">
-                      <input type="tel" id="phone">
+                      <div class="form-group "style="padding-top:30px;padding-left: 20px;">
+                        <label><b>Numero de Telefono</b></label>
+                        <div class="input-group-prepend mb-3 " >
+
+                      <input type="tel" id="phone" class="round">
                       </div>
                     </div>
                     <div class="form-group" style="padding-top:30px;padding-left: 20px;padding-right: 15px">
-                        
-                        <textarea class="form-control"id="mensaje"  rows="7" placeholder="Escriba su mensaje aqui"></textarea>
+                        <label><b>Mensaje</b></label>
+                        <textarea class="form-control" id="mensaje"placeholder="Escriba su mensaje aqui"></textarea>
                     </div>
                 </form>
                 <div class="text-right" style="padding-right: 15px">
@@ -111,6 +114,7 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/js/emojionearea.min.js"></script>
   <script src="vendor/js/intlTelInput.js"></script>
   <script>
     var input = document.querySelector("#phone");
@@ -136,8 +140,11 @@
       // preferredCountries: ['cn', 'jp'],
       // separateDialCode: true,
       utilsScript: "vendor/js/utils.js",
+    });</script>
+  <script>
+    $(document).ready(function(){
+      $("#mensaje").emojioneArea();
     });
-    
   </script>
 </body>
 

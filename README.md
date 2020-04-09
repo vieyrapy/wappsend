@@ -1,2 +1,2 @@
 # wappsend
-Enviar mensajes vinculando whatsapp web 
+Enviar mensajes vinculando whatsapp web .

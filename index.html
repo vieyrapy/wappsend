@@ -1,40 +1,52 @@
-<html>
-    <head>
-        <title>
-            WhatsApp Web - SMS
-        </title>
-        <meta charset="UTF-8">
-        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
-            <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
-            </script>
-            <script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
-            </script>
-            <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
-            </script>
-    
-        <script type="text/javascript">
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>sms-whatsapp</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/smswhats.min.css" rel="stylesheet">
+  <script type="text/javascript">
             function capturar(){
 
                 var numeroId=document.getElementById("numero").value;
-
+                //var codigoid=document.getElementById("codigo").value;
                 var mensajeId=document.getElementById("mensaje").value;
-
+                //numeroid=codigoid+numeroId;
                 //Reemplazar saltos de linea 
                 var sms = mensajeId.replace("\n","%0a%0a"); 
-
+                
                 // Reemplazar los especios en blanco de la caja de texto
                 var smsconvertido = sms.replace(/ /g,"%20"); 
 
                 //Crear y abrir en una nueva pestaña 
-                window.open('https://api.whatsapp.com/send?phone=595'+numeroId.substring(1)+'&text='+smsconvertido);
+                window.open('https://api.whatsapp.com/send?phone='+numeroId.substring(1)+'&text='+smsconvertido);
                 
             }
         </script>
-    </head>
-    <body>
-    
-    
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+</head>
+
+<body id="page-top">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="https://devsenc.files.wordpress.com/2019/05/banner_web_whatsap-1.jpg" class="d-block w-100" alt="...">
@@ -55,885 +67,57 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-    
-    
-        <div class="container">
-              <h3>Envía mensajes directos desde WhatsApp web sin tener que cargar los contactos en tu teléfono</h3>
-            <form>
-                <div class="form-group">
-                    <label>
-                        Whatsapp
-                    </label>
-                    <input class="form-control" id="numero" placeholder="0975179065" type="text">
-                    </input>
+
+  <!-- Navigation -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div> 
+            <div class="device-container">
+              <div class="device-mockup ipad_pro portrait gray">
+                <div class="device">
+                  <div class="screen" style="background-color:powderblue;  ">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                    <form>
+                      <div class="form-group ">
+                        <div class="input-group-prepend mb-3" style="padding-top:30px;padding-left: 20px;">
+<!--                          <div class="input-group-prepend" >
+                            <div class="btn-group">
+                              <select id="codigo">
+                                <option value="595">Paraguay</option>
+                                <option value="54">Argentina</option>
+                              </select>
+                            </div>
+                        </div>
+-->                       <input type="text" id="numero" placeholder="+595985655883" size="31 ">
+                      </div>
+                    </div>
+                    <div class="form-group" style="padding-top:30px;padding-left: 20px;padding-right: 15px">
+                        
+                        <textarea class="form-control" id="mensaje" rows="7" type="text" placeholder="Escriba su mensaje aqui"></textarea>
+                    </div>
+                </form>
+                <div class="text-right" style="padding-right: 15px">
+                  <input class="btn btn-success" onclick="capturar()" type="button" value="Enviar"></input>
                 </div>
-                <div class="form-group">
-                    <label>
-                        Mensaje
-                    </label>
-                    <textarea class="form-control" id="mensaje" rows="3" type="text"></textarea>
                 </div>
-            </form>
-            <input class="btn btn-success" onclick="capturar()" type="button" value="Enviar">
-            </input>
-            <br><br>
-            
-       
- 
-     <div class="alert alert-success" role="alert">
-                Colocá la palabra entre <b> *asterisco*</b> para convertirlos en negrita. Para los emojis copie y pegue 😃
-</div>
-
-
-<div class="row">
-  <div class="col-2">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="btn btn-light active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Caras</a>
-      <a class="btn btn-light" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personas</a>
-      <a class="btn btn-light" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Oficina</a>
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">  
-       <div class="emoji-list">        <span class="icone  " data-keyword="grinning face | grinning | face | grin">😀</span>
-        <span class="icone  " data-keyword="grinning face with smiling eyes | grin | beaming face with smiling eyes | eye | face | smile">😁</span>
-        <span class="icone  " data-keyword="face with tears of joy | joy | face | laugh | tear">😂</span>
-        <span class="icone  " data-keyword="rolling on the floor laughing | face | floor | laugh | rolling">🤣</span>
-        <span class="icone  " data-keyword="smiling face with open mouth | smiley | face | grinning face with big eyes | mouth | open | smile">😃</span>
-        <span class="icone  " data-keyword="smiling face with open mouth and smiling eyes | smile | eye | face | grinning face with smiling eyes | mouth | open">😄</span>
-        <span class="icone  " data-keyword="smiling face with open mouth and cold sweat | sweat smile | cold | face | grinning face with sweat | open | smile | sweat">😅</span>
-        <span class="icone  " data-keyword="smiling face with open mouth and tightly-closed eyes | laughing | satisfied | face | grinning squinting face | laugh | mouth | smile">😆</span>
-        <span class="icone  " data-keyword="winking face | wink | face">😉</span>
-        <span class="icone  " data-keyword="smiling face with smiling eyes | blush | eye | face | smile">😊</span>
-        <span class="icone  " data-keyword="face savouring delicious food | yum | delicious | face | face savoring food | savouring | smile">😋</span>
-        <span class="icone  " data-keyword="smiling face with sunglasses | sunglasses | bright | cool | face | sun">😎</span>
-        <span class="icone  " data-keyword="smiling face with heart-shaped eyes | heart eyes | eye | face | love | smile | smiling face with heart eyes">😍</span>
-        <span class="icone  " data-keyword="face throwing a kiss | kissing heart | face | face blowing a kiss | kiss">😘</span>
-        <span class="icone  " data-keyword="kissing face | kissing | face | kiss">😗</span>
-        <span class="icone  " data-keyword="kissing face with smiling eyes | kissing smiling eyes | eye | face | kiss | smile">😙</span>
-        <span class="icone  " data-keyword="kissing face with closed eyes | kissing closed eyes | closed | eye | face | kiss">😚</span>
-        <span class="icone  " data-keyword="white smiling face | relaxed | face | outlined | smile | smiling face">☺️</span>
-        <span class="icone  " data-keyword="slightly smiling face | face | smile">🙂</span>
-        <span class="icone  " data-keyword="hugging face | face | hug | hugging">🤗</span>
-        <span class="icone  " data-keyword="grinning face with star eyes | star struck | eyes | face | grinning | star | starry eyed">🤩</span>
-        <span class="icone  " data-keyword="thinking face | face | thinking">🤔</span>
-        <span class="icone  " data-keyword="face with one eyebrow raised | face with raised eyebrow | distrust | skeptic | disapproval | disbelief | mild surprise | scepticism">🤨</span>
-        <span class="icone  " data-keyword="neutral face | deadpan | face | neutral">😐</span>
-        <span class="icone  " data-keyword="expressionless face | expressionless | face | inexpressive | unexpressive">😑</span>
-        <span class="icone  " data-keyword="face without mouth | no mouth | face | mouth | quiet | silent">😶</span>
-        <span class="icone  " data-keyword="face with rolling eyes | eyes | face | rolling">🙄</span>
-        <span class="icone  " data-keyword="smirking face | smirk | face">😏</span>
-        <span class="icone  " data-keyword="persevering face | persevere | face">😣</span>
-        <span class="icone  " data-keyword="disappointed but relieved face | disappointed relieved | disappointed | face | relieved | sad but relieved face | whew">😥</span>
-        <span class="icone  " data-keyword="face with open mouth | open mouth | face | mouth | open | sympathy">😮</span>
-        <span class="icone  " data-keyword="zipper-mouth face | zipper mouth face | face | mouth | zipper">🤐</span>
-        <span class="icone  " data-keyword="hushed face | hushed | face | stunned | surprised">😯</span>
-        <span class="icone  " data-keyword="sleepy face | sleepy | face | sleep">😪</span>
-        <span class="icone  " data-keyword="tired face | face | tired">😫</span>
-        <span class="icone  " data-keyword="sleeping face | sleeping | face | sleep | zzz">😴</span>
-        <span class="icone  " data-keyword="relieved face | relieved | face">😌</span>
-        <span class="icone  " data-keyword="face with stuck-out tongue | stuck out tongue | face | face with tongue | tongue">😛</span>
-        <span class="icone  " data-keyword="face with stuck-out tongue and winking eye | stuck out tongue winking eye | eye | face | joke | tongue | wink | winking face with tongue">😜</span>
-        <span class="icone  " data-keyword="face with stuck-out tongue and tightly-closed eyes | stuck out tongue closed eyes | eye | face | horrible | squinting face with tongue | taste | tongue">😝</span>
-        <span class="icone  " data-keyword="drooling face | drooling | face">🤤</span>
-        <span class="icone  " data-keyword="unamused face | unamused | face | unhappy">😒</span>
-        <span class="icone  " data-keyword="face with cold sweat | sweat | cold | downcast face with sweat | face">😓</span>
-        <span class="icone  " data-keyword="pensive face | pensive | dejected | face">😔</span>
-        <span class="icone  " data-keyword="confused face | confused | face">😕</span>
-        <span class="icone  " data-keyword="upside-down face | upside down face | face | upside down">🙃</span>
-        <span class="icone  " data-keyword="money-mouth face | money mouth face | face | money | mouth">🤑</span>
-        <span class="icone  " data-keyword="astonished face | astonished | face | shocked | totally">😲</span>
-        <span class="icone  " data-keyword="white frowning face | face | frown | frowning face">☹️</span>
-        <span class="icone  " data-keyword="slightly frowning face | face | frown">🙁</span>
-        <span class="icone  " data-keyword="confounded face | confounded | face">😖</span>
-        <span class="icone  " data-keyword="disappointed face | disappointed | face">😞</span>
-        <span class="icone  " data-keyword="worried face | worried | face">😟</span>
-        <span class="icone  " data-keyword="face with look of triumph | triumph | face | face with steam from nose | won">😤</span>
-        <span class="icone  " data-keyword="crying face | cry | face | sad | tear">😢</span>
-        <span class="icone  " data-keyword="loudly crying face | sob | cry | face | sad | tear">😭</span>
-        <span class="icone  " data-keyword="frowning face with open mouth | frowning | face | frown | mouth | open">😦</span>
-        <span class="icone  " data-keyword="anguished face | anguished | face">😧</span>
-        <span class="icone  " data-keyword="fearful face | fearful | face | fear | scared">😨</span>
-        <span class="icone  " data-keyword="weary face | weary | face | tired">😩</span>
-        <span class="icone  " data-keyword="shocked face with exploding head | exploding head | shocked">🤯</span>
-        <span class="icone  " data-keyword="grimacing face | grimacing | face | grimace">😬</span>
-        <span class="icone  " data-keyword="face with open mouth and cold sweat | cold sweat | anxious face with sweat | blue | cold | face | rushed | sweat">😰</span>
-        <span class="icone  " data-keyword="face screaming in fear | scream | face | fear | munch | scared">😱</span>
-        <span class="icone  " data-keyword="flushed face | flushed | dazed | face">😳</span>
-        <span class="icone  " data-keyword="grinning face with one large and one small eye | zany face | eye | goofy | large | small">🤪</span>
-        <span class="icone  " data-keyword="dizzy face | dizzy | face">😵</span>
-        <span class="icone  " data-keyword="pouting face | rage | angry | face | mad | pouting | red">😡</span>
-        <span class="icone  " data-keyword="angry face | angry | face | mad">😠</span>
-        <span class="icone  " data-keyword="serious face with symbols covering mouth | face with symbols on mouth | swearing | cursing">🤬</span>
-        <span class="icone  " data-keyword="face with medical mask | mask | cold | doctor | face | sick">😷</span>
-        <span class="icone  " data-keyword="face with thermometer | face | ill | sick | thermometer">🤒</span>
-        <span class="icone  " data-keyword="face with head-bandage | face with head bandage | bandage | face | hurt | injury">🤕</span>
-        <span class="icone  " data-keyword="nauseated face | face | nauseated | vomit">🤢</span>
-        <span class="icone  " data-keyword="face with open mouth vomiting | face vomiting | sick | vomit">🤮</span>
-        <span class="icone  " data-keyword="sneezing face | face | gesundheit | sneeze">🤧</span>
-        <span class="icone  " data-keyword="smiling face with halo | innocent | angel | face | fantasy | halo">😇</span>
-        <span class="icone  " data-keyword="face with cowboy hat | cowboy | cowgirl | face | hat">🤠</span>
-        <span class="icone  " data-keyword="lying face | face | lie | pinocchio">🤥</span>
-        <span class="icone  " data-keyword="face with finger covering closed lips | shushing face | quiet | shush">🤫</span>
-        <span class="icone  " data-keyword="smiling face with smiling eyes and hand covering mouth | face with hand over mouth | whoops | shock | sudden realization | surprise">🤭</span>
-        <span class="icone  " data-keyword="face with monocle | stuffy | wealthy">🧐</span>
-        <span class="icone  " data-keyword="nerd face | face | geek | nerd">🤓</span>
-        <span class="icone  " data-keyword="smiling face with horns | smiling imp | face | fairy tale | fantasy | horns | smile">😈</span>
-        <span class="icone  " data-keyword="imp | angry face with horns | demon | devil | face | fantasy">👿</span>
-        <span class="icone  " data-keyword="clown face | clown | face">🤡</span>
-        <span class="icone  " data-keyword="japanese ogre | creature | face | fairy tale | fantasy | monster | ogre | troll">👹</span>
-        <span class="icone  " data-keyword="japanese goblin | creature | face | fairy tale | fantasy | goblin | monster">👺</span>
-        <span class="icone  " data-keyword="skull | death | face | fairy tale | monster">💀</span>
-        <span class="icone  " data-keyword="skull and crossbones | crossbones | death | face | monster | skull">☠️</span>
-        <span class="icone  " data-keyword="ghost | creature | face | fairy tale | fantasy | monster">👻</span>
-        <span class="icone  " data-keyword="extraterrestrial alien | alien | creature | extraterrestrial | face | fantasy | ufo">👽</span>
-        <span class="icone  " data-keyword="alien monster | space invader | alien | creature | extraterrestrial | face | monster | ufo">👾</span>
-        <span class="icone  " data-keyword="robot face | face | monster | robot">🤖</span>
-        <span class="icone  " data-keyword="pile of poo | hankey | poop | shit | dung | face | monster | poo">💩</span>
-        <span class="icone  " data-keyword="speak-no-evil monkey | speak no evil | evil | face | forbidden | monkey | speak | speak no evil monkey">🙊</span>
-<p>Más emojis <a href="http://smiley.cool/es/emoji-list.php">smiley.cool</a></p></div></div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-      <div class="emoji-list">        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="baby | young">👶</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="baby | young">👶🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="baby | young">👶🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="baby | young">👶🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="baby | young">👶🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="baby | young">👶🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="child | gender neutral | unspecified gender | young">🧒</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="child | gender neutral | unspecified gender | young">🧒🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="child | gender neutral | unspecified gender | young">🧒🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="child | gender neutral | unspecified gender | young">🧒🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="child | gender neutral | unspecified gender | young">🧒🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="child | gender neutral | unspecified gender | young">🧒🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="boy | young">👦</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="boy | young">👦🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="boy | young">👦🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="boy | young">👦🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="boy | young">👦🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="boy | young">👦🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="girl | Virgo | young | zodiac">👧</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="girl | Virgo | young | zodiac">👧🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="girl | Virgo | young | zodiac">👧🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="girl | Virgo | young | zodiac">👧🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="girl | Virgo | young | zodiac">👧🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="girl | Virgo | young | zodiac">👧🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="adult | gender neutral | person | unspecified gender">🧑</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="adult | gender neutral | person | unspecified gender">🧑🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="adult | gender neutral | person | unspecified gender">🧑🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="adult | gender neutral | person | unspecified gender">🧑🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="adult | gender neutral | person | unspecified gender">🧑🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="adult | gender neutral | person | unspecified gender">🧑🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man | adult">👨</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man | adult">👨🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man | adult">👨🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man | adult">👨🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man | adult">👨🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man | adult">👨🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="blond haired man | blond | man | man: blond hair">👱‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="blond haired man | blond | man | man: blond hair">👱🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="blond haired man | blond | man | man: blond hair">👱🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="blond haired man | blond | man | man: blond hair">👱🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="blond haired man | blond | man | man: blond hair">👱🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="blond haired man | blond | man | man: blond hair">👱🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="bearded person | beard | man: beard | person | bewhiskered">🧔</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="bearded person | beard | man: beard | person | bewhiskered">🧔🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="bearded person | beard | man: beard | person | bewhiskered">🧔🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="bearded person | beard | man: beard | person | bewhiskered">🧔🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="bearded person | beard | man: beard | person | bewhiskered">🧔🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="bearded person | beard | man: beard | person | bewhiskered">🧔🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman | adult">👩</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman | adult">👩🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman | adult">👩🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman | adult">👩🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman | adult">👩🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman | adult">👩🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="blond haired woman | blonde | woman | woman: blond hair">👱‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="blond haired woman | blonde | woman | woman: blond hair">👱🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="blond haired woman | blonde | woman | woman: blond hair">👱🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="blond haired woman | blonde | woman | woman: blond hair">👱🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="blond haired woman | blonde | woman | woman: blond hair">👱🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="blond haired woman | blonde | woman | woman: blond hair">👱🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="older adult | adult | gender neutral | old | older person | unspecified gender">🧓</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="older adult | adult | gender neutral | old | older person | unspecified gender">🧓🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="older adult | adult | gender neutral | old | older person | unspecified gender">🧓🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="older adult | adult | gender neutral | old | older person | unspecified gender">🧓🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="older adult | adult | gender neutral | old | older person | unspecified gender">🧓🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="older adult | adult | gender neutral | old | older person | unspecified gender">🧓🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="older man | adult | man | old">👴</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="older man | adult | man | old">👴🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="older man | adult | man | old">👴🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="older man | adult | man | old">👴🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="older man | adult | man | old">👴🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="older man | adult | man | old">👴🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="older woman | adult | old | woman">👵</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="older woman | adult | old | woman">👵🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="older woman | adult | old | woman">👵🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="older woman | adult | old | woman">👵🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="older woman | adult | old | woman">👵🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="older woman | adult | old | woman">👵🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male doctor | doctor | healthcare | man | man health worker | nurse | therapist">👨‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male doctor | doctor | healthcare | man | man health worker | nurse | therapist">👨🏻‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male doctor | doctor | healthcare | man | man health worker | nurse | therapist">👨🏼‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male doctor | doctor | healthcare | man | man health worker | nurse | therapist">👨🏽‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male doctor | doctor | healthcare | man | man health worker | nurse | therapist">👨🏾‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male doctor | doctor | healthcare | man | man health worker | nurse | therapist">👨🏿‍⚕️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female doctor | doctor | healthcare | nurse | therapist | woman | woman health worker">👩‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female doctor | doctor | healthcare | nurse | therapist | woman | woman health worker">👩🏻‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female doctor | doctor | healthcare | nurse | therapist | woman | woman health worker">👩🏼‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female doctor | doctor | healthcare | nurse | therapist | woman | woman health worker">👩🏽‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female doctor | doctor | healthcare | nurse | therapist | woman | woman health worker">👩🏾‍⚕️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female doctor | doctor | healthcare | nurse | therapist | woman | woman health worker">👩🏿‍⚕️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male student | graduate | man | student">👨‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male student | graduate | man | student">👨🏻‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male student | graduate | man | student">👨🏼‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male student | graduate | man | student">👨🏽‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male student | graduate | man | student">👨🏾‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male student | graduate | man | student">👨🏿‍🎓</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female student | graduate | student | woman">👩‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female student | graduate | student | woman">👩🏻‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female student | graduate | student | woman">👩🏼‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female student | graduate | student | woman">👩🏽‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female student | graduate | student | woman">👩🏾‍🎓</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female student | graduate | student | woman">👩🏿‍🎓</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male teacher | instructor | man | professor | teacher">👨‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male teacher | instructor | man | professor | teacher">👨🏻‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male teacher | instructor | man | professor | teacher">👨🏼‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male teacher | instructor | man | professor | teacher">👨🏽‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male teacher | instructor | man | professor | teacher">👨🏾‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male teacher | instructor | man | professor | teacher">👨🏿‍🏫</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female teacher | instructor | professor | teacher | woman">👩‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female teacher | instructor | professor | teacher | woman">👩🏻‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female teacher | instructor | professor | teacher | woman">👩🏼‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female teacher | instructor | professor | teacher | woman">👩🏽‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female teacher | instructor | professor | teacher | woman">👩🏾‍🏫</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female teacher | instructor | professor | teacher | woman">👩🏿‍🏫</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male judge | justice | man | man judge | scales">👨‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male judge | justice | man | man judge | scales">👨🏻‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male judge | justice | man | man judge | scales">👨🏼‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male judge | justice | man | man judge | scales">👨🏽‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male judge | justice | man | man judge | scales">👨🏾‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male judge | justice | man | man judge | scales">👨🏿‍⚖️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female judge | judge | scales | woman">👩‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female judge | judge | scales | woman">👩🏻‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female judge | judge | scales | woman">👩🏼‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female judge | judge | scales | woman">👩🏽‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female judge | judge | scales | woman">👩🏾‍⚖️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female judge | judge | scales | woman">👩🏿‍⚖️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male farmer | farmer | gardener | man | rancher">👨‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male farmer | farmer | gardener | man | rancher">👨🏻‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male farmer | farmer | gardener | man | rancher">👨🏼‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male farmer | farmer | gardener | man | rancher">👨🏽‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male farmer | farmer | gardener | man | rancher">👨🏾‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male farmer | farmer | gardener | man | rancher">👨🏿‍🌾</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female farmer | farmer | gardener | rancher | woman">👩‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female farmer | farmer | gardener | rancher | woman">👩🏻‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female farmer | farmer | gardener | rancher | woman">👩🏼‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female farmer | farmer | gardener | rancher | woman">👩🏽‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female farmer | farmer | gardener | rancher | woman">👩🏾‍🌾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female farmer | farmer | gardener | rancher | woman">👩🏿‍🌾</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male cook | chef | cook | man">👨‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male cook | chef | cook | man">👨🏻‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male cook | chef | cook | man">👨🏼‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male cook | chef | cook | man">👨🏽‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male cook | chef | cook | man">👨🏾‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male cook | chef | cook | man">👨🏿‍🍳</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female cook | chef | cook | woman">👩‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female cook | chef | cook | woman">👩🏻‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female cook | chef | cook | woman">👩🏼‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female cook | chef | cook | woman">👩🏽‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female cook | chef | cook | woman">👩🏾‍🍳</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female cook | chef | cook | woman">👩🏿‍🍳</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male mechanic | electrician | man | mechanic | plumber | tradesperson">👨‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male mechanic | electrician | man | mechanic | plumber | tradesperson">👨🏻‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male mechanic | electrician | man | mechanic | plumber | tradesperson">👨🏼‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male mechanic | electrician | man | mechanic | plumber | tradesperson">👨🏽‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male mechanic | electrician | man | mechanic | plumber | tradesperson">👨🏾‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male mechanic | electrician | man | mechanic | plumber | tradesperson">👨🏿‍🔧</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female mechanic | electrician | mechanic | plumber | tradesperson | woman">👩‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female mechanic | electrician | mechanic | plumber | tradesperson | woman">👩🏻‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female mechanic | electrician | mechanic | plumber | tradesperson | woman">👩🏼‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female mechanic | electrician | mechanic | plumber | tradesperson | woman">👩🏽‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female mechanic | electrician | mechanic | plumber | tradesperson | woman">👩🏾‍🔧</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female mechanic | electrician | mechanic | plumber | tradesperson | woman">👩🏿‍🔧</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male factory worker | assembly | factory | industrial | man | worker">👨‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male factory worker | assembly | factory | industrial | man | worker">👨🏻‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male factory worker | assembly | factory | industrial | man | worker">👨🏼‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male factory worker | assembly | factory | industrial | man | worker">👨🏽‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male factory worker | assembly | factory | industrial | man | worker">👨🏾‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male factory worker | assembly | factory | industrial | man | worker">👨🏿‍🏭</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female factory worker | assembly | factory | industrial | woman | worker">👩‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female factory worker | assembly | factory | industrial | woman | worker">👩🏻‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female factory worker | assembly | factory | industrial | woman | worker">👩🏼‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female factory worker | assembly | factory | industrial | woman | worker">👩🏽‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female factory worker | assembly | factory | industrial | woman | worker">👩🏾‍🏭</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female factory worker | assembly | factory | industrial | woman | worker">👩🏿‍🏭</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male office worker | architect | business | man | man office worker | manager | white collar">👨‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male office worker | architect | business | man | man office worker | manager | white collar">👨🏻‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male office worker | architect | business | man | man office worker | manager | white collar">👨🏼‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male office worker | architect | business | man | man office worker | manager | white collar">👨🏽‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male office worker | architect | business | man | man office worker | manager | white collar">👨🏾‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male office worker | architect | business | man | man office worker | manager | white collar">👨🏿‍💼</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female office worker | architect | business | manager | white collar | woman | woman office worker">👩‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female office worker | architect | business | manager | white collar | woman | woman office worker">👩🏻‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female office worker | architect | business | manager | white collar | woman | woman office worker">👩🏼‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female office worker | architect | business | manager | white collar | woman | woman office worker">👩🏽‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female office worker | architect | business | manager | white collar | woman | woman office worker">👩🏾‍💼</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female office worker | architect | business | manager | white collar | woman | woman office worker">👩🏿‍💼</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male scientist | biologist | chemist | engineer | man | physicist | scientist">👨‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male scientist | biologist | chemist | engineer | man | physicist | scientist">👨🏻‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male scientist | biologist | chemist | engineer | man | physicist | scientist">👨🏼‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male scientist | biologist | chemist | engineer | man | physicist | scientist">👨🏽‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male scientist | biologist | chemist | engineer | man | physicist | scientist">👨🏾‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male scientist | biologist | chemist | engineer | man | physicist | scientist">👨🏿‍🔬</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female scientist | biologist | chemist | engineer | physicist | scientist | woman">👩‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female scientist | biologist | chemist | engineer | physicist | scientist | woman">👩🏻‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female scientist | biologist | chemist | engineer | physicist | scientist | woman">👩🏼‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female scientist | biologist | chemist | engineer | physicist | scientist | woman">👩🏽‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female scientist | biologist | chemist | engineer | physicist | scientist | woman">👩🏾‍🔬</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female scientist | biologist | chemist | engineer | physicist | scientist | woman">👩🏿‍🔬</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male technologist | coder | developer | inventor | man | software | technologist">👨‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male technologist | coder | developer | inventor | man | software | technologist">👨🏻‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male technologist | coder | developer | inventor | man | software | technologist">👨🏼‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male technologist | coder | developer | inventor | man | software | technologist">👨🏽‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male technologist | coder | developer | inventor | man | software | technologist">👨🏾‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male technologist | coder | developer | inventor | man | software | technologist">👨🏿‍💻</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female technologist | coder | developer | inventor | software | technologist | woman">👩‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female technologist | coder | developer | inventor | software | technologist | woman">👩🏻‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female technologist | coder | developer | inventor | software | technologist | woman">👩🏼‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female technologist | coder | developer | inventor | software | technologist | woman">👩🏽‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female technologist | coder | developer | inventor | software | technologist | woman">👩🏾‍💻</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female technologist | coder | developer | inventor | software | technologist | woman">👩🏿‍💻</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male singer | actor | entertainer | man | rock | singer | star">👨‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male singer | actor | entertainer | man | rock | singer | star">👨🏻‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male singer | actor | entertainer | man | rock | singer | star">👨🏼‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male singer | actor | entertainer | man | rock | singer | star">👨🏽‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male singer | actor | entertainer | man | rock | singer | star">👨🏾‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male singer | actor | entertainer | man | rock | singer | star">👨🏿‍🎤</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female singer | actor | entertainer | rock | singer | star | woman">👩‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female singer | actor | entertainer | rock | singer | star | woman">👩🏻‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female singer | actor | entertainer | rock | singer | star | woman">👩🏼‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female singer | actor | entertainer | rock | singer | star | woman">👩🏽‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female singer | actor | entertainer | rock | singer | star | woman">👩🏾‍🎤</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female singer | actor | entertainer | rock | singer | star | woman">👩🏿‍🎤</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male artist | artist | man | palette">👨‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male artist | artist | man | palette">👨🏻‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male artist | artist | man | palette">👨🏼‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male artist | artist | man | palette">👨🏽‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male artist | artist | man | palette">👨🏾‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male artist | artist | man | palette">👨🏿‍🎨</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female artist | artist | palette | woman">👩‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female artist | artist | palette | woman">👩🏻‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female artist | artist | palette | woman">👩🏼‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female artist | artist | palette | woman">👩🏽‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female artist | artist | palette | woman">👩🏾‍🎨</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female artist | artist | palette | woman">👩🏿‍🎨</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male pilot | man | pilot | plane">👨‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male pilot | man | pilot | plane">👨🏻‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male pilot | man | pilot | plane">👨🏼‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male pilot | man | pilot | plane">👨🏽‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male pilot | man | pilot | plane">👨🏾‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male pilot | man | pilot | plane">👨🏿‍✈️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female pilot | pilot | plane | woman">👩‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female pilot | pilot | plane | woman">👩🏻‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female pilot | pilot | plane | woman">👩🏼‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female pilot | pilot | plane | woman">👩🏽‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female pilot | pilot | plane | woman">👩🏾‍✈️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female pilot | pilot | plane | woman">👩🏿‍✈️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male astronaut | astronaut | man | rocket">👨‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male astronaut | astronaut | man | rocket">👨🏻‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male astronaut | astronaut | man | rocket">👨🏼‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male astronaut | astronaut | man | rocket">👨🏽‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male astronaut | astronaut | man | rocket">👨🏾‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male astronaut | astronaut | man | rocket">👨🏿‍🚀</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female astronaut | astronaut | rocket | woman">👩‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female astronaut | astronaut | rocket | woman">👩🏻‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female astronaut | astronaut | rocket | woman">👩🏼‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female astronaut | astronaut | rocket | woman">👩🏽‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female astronaut | astronaut | rocket | woman">👩🏾‍🚀</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female astronaut | astronaut | rocket | woman">👩🏿‍🚀</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male firefighter | firefighter | firetruck | man">👨‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male firefighter | firefighter | firetruck | man">👨🏻‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male firefighter | firefighter | firetruck | man">👨🏼‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male firefighter | firefighter | firetruck | man">👨🏽‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male firefighter | firefighter | firetruck | man">👨🏾‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male firefighter | firefighter | firetruck | man">👨🏿‍🚒</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female firefighter | firefighter | firetruck | woman">👩‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female firefighter | firefighter | firetruck | woman">👩🏻‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female firefighter | firefighter | firetruck | woman">👩🏼‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female firefighter | firefighter | firetruck | woman">👩🏽‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female firefighter | firefighter | firetruck | woman">👩🏾‍🚒</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female firefighter | firefighter | firetruck | woman">👩🏿‍🚒</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male police officer | cop | man | officer | police">👮‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male police officer | cop | man | officer | police">👮🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male police officer | cop | man | officer | police">👮🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male police officer | cop | man | officer | police">👮🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male police officer | cop | man | officer | police">👮🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male police officer | cop | man | officer | police">👮🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female police officer | cop | officer | police | woman">👮‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female police officer | cop | officer | police | woman">👮🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female police officer | cop | officer | police | woman">👮🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female police officer | cop | officer | police | woman">👮🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female police officer | cop | officer | police | woman">👮🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female police officer | cop | officer | police | woman">👮🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male detective | detective | man | sleuth | spy">🕵️‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male detective | detective | man | sleuth | spy">🕵🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male detective | detective | man | sleuth | spy">🕵🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male detective | detective | man | sleuth | spy">🕵🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male detective | detective | man | sleuth | spy">🕵🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male detective | detective | man | sleuth | spy">🕵🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female detective | detective | sleuth | spy | woman">🕵️‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female detective | detective | sleuth | spy | woman">🕵🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female detective | detective | sleuth | spy | woman">🕵🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female detective | detective | sleuth | spy | woman">🕵🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female detective | detective | sleuth | spy | woman">🕵🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female detective | detective | sleuth | spy | woman">🕵🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male guard | guard | man">💂‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male guard | guard | man">💂🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male guard | guard | man">💂🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male guard | guard | man">💂🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male guard | guard | man">💂🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male guard | guard | man">💂🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female guard | guard | woman">💂‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female guard | guard | woman">💂🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female guard | guard | woman">💂🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female guard | guard | woman">💂🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female guard | guard | woman">💂🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female guard | guard | woman">💂🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male construction worker | construction | man | worker">👷‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male construction worker | construction | man | worker">👷🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male construction worker | construction | man | worker">👷🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male construction worker | construction | man | worker">👷🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male construction worker | construction | man | worker">👷🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male construction worker | construction | man | worker">👷🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female construction worker | construction | woman | worker">👷‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female construction worker | construction | woman | worker">👷🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female construction worker | construction | woman | worker">👷🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female construction worker | construction | woman | worker">👷🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female construction worker | construction | woman | worker">👷🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female construction worker | construction | woman | worker">👷🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="prince">🤴</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="prince">🤴🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="prince">🤴🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="prince">🤴🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="prince">🤴🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="prince">🤴🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="princess | fairy tale | fantasy">👸</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="princess | fairy tale | fantasy">👸🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="princess | fairy tale | fantasy">👸🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="princess | fairy tale | fantasy">👸🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="princess | fairy tale | fantasy">👸🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="princess | fairy tale | fantasy">👸🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man wearing turban | man | turban">👳‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man wearing turban | man | turban">👳🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man wearing turban | man | turban">👳🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man wearing turban | man | turban">👳🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man wearing turban | man | turban">👳🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man wearing turban | man | turban">👳🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman wearing turban | turban | woman">👳‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman wearing turban | turban | woman">👳🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman wearing turban | turban | woman">👳🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman wearing turban | turban | woman">👳🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman wearing turban | turban | woman">👳🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman wearing turban | turban | woman">👳🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man with gua pi mao | gua pi mao | hat | man | man with Chinese cap">👲</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man with gua pi mao | gua pi mao | hat | man | man with Chinese cap">👲🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man with gua pi mao | gua pi mao | hat | man | man with Chinese cap">👲🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man with gua pi mao | gua pi mao | hat | man | man with Chinese cap">👲🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man with gua pi mao | gua pi mao | hat | man | man with Chinese cap">👲🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man with gua pi mao | gua pi mao | hat | man | man with Chinese cap">👲🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="person with headscarf | headscarf | hijab | mantilla | tichel | woman with headscarf | bandana | head kerchief">🧕</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="person with headscarf | headscarf | hijab | mantilla | tichel | woman with headscarf | bandana | head kerchief">🧕🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="person with headscarf | headscarf | hijab | mantilla | tichel | woman with headscarf | bandana | head kerchief">🧕🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="person with headscarf | headscarf | hijab | mantilla | tichel | woman with headscarf | bandana | head kerchief">🧕🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="person with headscarf | headscarf | hijab | mantilla | tichel | woman with headscarf | bandana | head kerchief">🧕🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="person with headscarf | headscarf | hijab | mantilla | tichel | woman with headscarf | bandana | head kerchief">🧕🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man in tuxedo | groom | man | tuxedo">🤵</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man in tuxedo | groom | man | tuxedo">🤵🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man in tuxedo | groom | man | tuxedo">🤵🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man in tuxedo | groom | man | tuxedo">🤵🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man in tuxedo | groom | man | tuxedo">🤵🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man in tuxedo | groom | man | tuxedo">🤵🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="bride with veil | bride | veil | wedding">👰</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="bride with veil | bride | veil | wedding">👰🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="bride with veil | bride | veil | wedding">👰🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="bride with veil | bride | veil | wedding">👰🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="bride with veil | bride | veil | wedding">👰🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="bride with veil | bride | veil | wedding">👰🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="pregnant woman | pregnant | woman">🤰</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="pregnant woman | pregnant | woman">🤰🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="pregnant woman | pregnant | woman">🤰🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="pregnant woman | pregnant | woman">🤰🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="pregnant woman | pregnant | woman">🤰🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="pregnant woman | pregnant | woman">🤰🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="breast-feeding | breast feeding | baby | breast | nursing">🤱</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="breast-feeding | breast feeding | baby | breast | nursing">🤱🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="breast-feeding | breast feeding | baby | breast | nursing">🤱🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="breast-feeding | breast feeding | baby | breast | nursing">🤱🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="breast-feeding | breast feeding | baby | breast | nursing">🤱🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="breast-feeding | breast feeding | baby | breast | nursing">🤱🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="baby angel | angel | baby | face | fairy tale | fantasy">👼</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="baby angel | angel | baby | face | fairy tale | fantasy">👼🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="baby angel | angel | baby | face | fairy tale | fantasy">👼🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="baby angel | angel | baby | face | fairy tale | fantasy">👼🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="baby angel | angel | baby | face | fairy tale | fantasy">👼🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="baby angel | angel | baby | face | fairy tale | fantasy">👼🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="father christmas | santa | celebration | Christmas | claus | father | Santa Claus">🎅</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="father christmas | santa | celebration | Christmas | claus | father | Santa Claus">🎅🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="father christmas | santa | celebration | Christmas | claus | father | Santa Claus">🎅🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="father christmas | santa | celebration | Christmas | claus | father | Santa Claus">🎅🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="father christmas | santa | celebration | Christmas | claus | father | Santa Claus">🎅🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="father christmas | santa | celebration | Christmas | claus | father | Santa Claus">🎅🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="mother christmas | mrs claus | celebration | Christmas | claus | mother | Mrs. | Mrs. Claus">🤶</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="mother christmas | mrs claus | celebration | Christmas | claus | mother | Mrs. | Mrs. Claus">🤶🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="mother christmas | mrs claus | celebration | Christmas | claus | mother | Mrs. | Mrs. Claus">🤶🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="mother christmas | mrs claus | celebration | Christmas | claus | mother | Mrs. | Mrs. Claus">🤶🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="mother christmas | mrs claus | celebration | Christmas | claus | mother | Mrs. | Mrs. Claus">🤶🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="mother christmas | mrs claus | celebration | Christmas | claus | mother | Mrs. | Mrs. Claus">🤶🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male mage | man mage | sorcerer | wizard">🧙‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male mage | man mage | sorcerer | wizard">🧙🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male mage | man mage | sorcerer | wizard">🧙🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male mage | man mage | sorcerer | wizard">🧙🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male mage | man mage | sorcerer | wizard">🧙🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male mage | man mage | sorcerer | wizard">🧙🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female mage | sorceress | witch | woman mage">🧙‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female mage | sorceress | witch | woman mage">🧙🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female mage | sorceress | witch | woman mage">🧙🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female mage | sorceress | witch | woman mage">🧙🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female mage | sorceress | witch | woman mage">🧙🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female mage | sorceress | witch | woman mage">🧙🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male fairy | man fairy | Oberon | Puck">🧚‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male fairy | man fairy | Oberon | Puck">🧚🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male fairy | man fairy | Oberon | Puck">🧚🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male fairy | man fairy | Oberon | Puck">🧚🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male fairy | man fairy | Oberon | Puck">🧚🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male fairy | man fairy | Oberon | Puck">🧚🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female fairy | Titania | woman fairy">🧚‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female fairy | Titania | woman fairy">🧚🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female fairy | Titania | woman fairy">🧚🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female fairy | Titania | woman fairy">🧚🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female fairy | Titania | woman fairy">🧚🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female fairy | Titania | woman fairy">🧚🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male vampire | Dracula | man vampire | undead">🧛‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male vampire | Dracula | man vampire | undead">🧛🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male vampire | Dracula | man vampire | undead">🧛🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male vampire | Dracula | man vampire | undead">🧛🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male vampire | Dracula | man vampire | undead">🧛🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male vampire | Dracula | man vampire | undead">🧛🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female vampire | undead | woman vampire">🧛‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female vampire | undead | woman vampire">🧛🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female vampire | undead | woman vampire">🧛🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female vampire | undead | woman vampire">🧛🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female vampire | undead | woman vampire">🧛🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female vampire | undead | woman vampire">🧛🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="merman | Triton">🧜‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="merman | Triton">🧜🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="merman | Triton">🧜🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="merman | Triton">🧜🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="merman | Triton">🧜🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="merman | Triton">🧜🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="mermaid | merwoman">🧜‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="mermaid | merwoman">🧜🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="mermaid | merwoman">🧜🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="mermaid | merwoman">🧜🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="mermaid | merwoman">🧜🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="mermaid | merwoman">🧜🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="male elf | magical | man elf">🧝‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="male elf | magical | man elf">🧝🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="male elf | magical | man elf">🧝🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="male elf | magical | man elf">🧝🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="male elf | magical | man elf">🧝🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="male elf | magical | man elf">🧝🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="female elf | magical | woman elf">🧝‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="female elf | magical | woman elf">🧝🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="female elf | magical | woman elf">🧝🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="female elf | magical | woman elf">🧝🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="female elf | magical | woman elf">🧝🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="female elf | magical | woman elf">🧝🏿‍♀️</span></span>
-        <span class="icone  " data-keyword="male genie | djinn | man genie">🧞‍♂️</span>
-        <span class="icone  " data-keyword="female genie | djinn | woman genie">🧞‍♀️</span>
-        <span class="icone  " data-keyword="male zombie | man zombie | undead | walking dead">🧟‍♂️</span>
-        <span class="icone  " data-keyword="female zombie | undead | walking dead | woman zombie">🧟‍♀️</span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man frowning | frowning | gesture | man">🙍‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man frowning | frowning | gesture | man">🙍🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man frowning | frowning | gesture | man">🙍🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man frowning | frowning | gesture | man">🙍🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man frowning | frowning | gesture | man">🙍🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man frowning | frowning | gesture | man">🙍🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman frowning | frowning | gesture | woman">🙍‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman frowning | frowning | gesture | woman">🙍🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman frowning | frowning | gesture | woman">🙍🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman frowning | frowning | gesture | woman">🙍🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman frowning | frowning | gesture | woman">🙍🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman frowning | frowning | gesture | woman">🙍🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man pouting | gesture | man | pouting">🙎‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man pouting | gesture | man | pouting">🙎🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man pouting | gesture | man | pouting">🙎🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man pouting | gesture | man | pouting">🙎🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man pouting | gesture | man | pouting">🙎🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man pouting | gesture | man | pouting">🙎🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman pouting | gesture | pouting | woman">🙎‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman pouting | gesture | pouting | woman">🙎🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman pouting | gesture | pouting | woman">🙎🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman pouting | gesture | pouting | woman">🙎🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman pouting | gesture | pouting | woman">🙎🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman pouting | gesture | pouting | woman">🙎🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man gesturing no | forbidden | gesture | hand | man | man gesturing NO | prohibited">🙅‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man gesturing no | forbidden | gesture | hand | man | man gesturing NO | prohibited">🙅🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man gesturing no | forbidden | gesture | hand | man | man gesturing NO | prohibited">🙅🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man gesturing no | forbidden | gesture | hand | man | man gesturing NO | prohibited">🙅🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man gesturing no | forbidden | gesture | hand | man | man gesturing NO | prohibited">🙅🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man gesturing no | forbidden | gesture | hand | man | man gesturing NO | prohibited">🙅🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman gesturing no | forbidden | gesture | hand | prohibited | woman | woman gesturing NO">🙅‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman gesturing no | forbidden | gesture | hand | prohibited | woman | woman gesturing NO">🙅🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman gesturing no | forbidden | gesture | hand | prohibited | woman | woman gesturing NO">🙅🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman gesturing no | forbidden | gesture | hand | prohibited | woman | woman gesturing NO">🙅🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman gesturing no | forbidden | gesture | hand | prohibited | woman | woman gesturing NO">🙅🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman gesturing no | forbidden | gesture | hand | prohibited | woman | woman gesturing NO">🙅🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man gesturing ok | gesture | hand | man | man gesturing OK | OK">🙆‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man gesturing ok | gesture | hand | man | man gesturing OK | OK">🙆🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man gesturing ok | gesture | hand | man | man gesturing OK | OK">🙆🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man gesturing ok | gesture | hand | man | man gesturing OK | OK">🙆🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man gesturing ok | gesture | hand | man | man gesturing OK | OK">🙆🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man gesturing ok | gesture | hand | man | man gesturing OK | OK">🙆🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman gesturing ok | gesture | hand | OK | woman | woman gesturing OK">🙆‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman gesturing ok | gesture | hand | OK | woman | woman gesturing OK">🙆🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman gesturing ok | gesture | hand | OK | woman | woman gesturing OK">🙆🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman gesturing ok | gesture | hand | OK | woman | woman gesturing OK">🙆🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman gesturing ok | gesture | hand | OK | woman | woman gesturing OK">🙆🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman gesturing ok | gesture | hand | OK | woman | woman gesturing OK">🙆🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man tipping hand | man | sassy | tipping hand">💁‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man tipping hand | man | sassy | tipping hand">💁🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man tipping hand | man | sassy | tipping hand">💁🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man tipping hand | man | sassy | tipping hand">💁🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man tipping hand | man | sassy | tipping hand">💁🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man tipping hand | man | sassy | tipping hand">💁🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman tipping hand | sassy | tipping hand | woman">💁‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman tipping hand | sassy | tipping hand | woman">💁🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman tipping hand | sassy | tipping hand | woman">💁🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman tipping hand | sassy | tipping hand | woman">💁🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman tipping hand | sassy | tipping hand | woman">💁🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman tipping hand | sassy | tipping hand | woman">💁🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man raising hand | gesture | man | raising hand">🙋‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man raising hand | gesture | man | raising hand">🙋🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man raising hand | gesture | man | raising hand">🙋🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man raising hand | gesture | man | raising hand">🙋🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man raising hand | gesture | man | raising hand">🙋🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man raising hand | gesture | man | raising hand">🙋🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman raising hand | gesture | raising hand | woman">🙋‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman raising hand | gesture | raising hand | woman">🙋🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman raising hand | gesture | raising hand | woman">🙋🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman raising hand | gesture | raising hand | woman">🙋🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman raising hand | gesture | raising hand | woman">🙋🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman raising hand | gesture | raising hand | woman">🙋🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man bowing | apology | bowing | favor | gesture | man | sorry">🙇‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man bowing | apology | bowing | favor | gesture | man | sorry">🙇🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man bowing | apology | bowing | favor | gesture | man | sorry">🙇🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man bowing | apology | bowing | favor | gesture | man | sorry">🙇🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man bowing | apology | bowing | favor | gesture | man | sorry">🙇🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man bowing | apology | bowing | favor | gesture | man | sorry">🙇🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman bowing | apology | bowing | favor | gesture | sorry | woman">🙇‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman bowing | apology | bowing | favor | gesture | sorry | woman">🙇🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman bowing | apology | bowing | favor | gesture | sorry | woman">🙇🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman bowing | apology | bowing | favor | gesture | sorry | woman">🙇🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman bowing | apology | bowing | favor | gesture | sorry | woman">🙇🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman bowing | apology | bowing | favor | gesture | sorry | woman">🙇🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="face palm | disbelief | exasperation | face | palm | person facepalming">🤦</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="face palm | disbelief | exasperation | face | palm | person facepalming">🤦🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="face palm | disbelief | exasperation | face | palm | person facepalming">🤦🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="face palm | disbelief | exasperation | face | palm | person facepalming">🤦🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="face palm | disbelief | exasperation | face | palm | person facepalming">🤦🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="face palm | disbelief | exasperation | face | palm | person facepalming">🤦🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man facepalming | disbelief | exasperation | facepalm | man">🤦‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man facepalming | disbelief | exasperation | facepalm | man">🤦🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man facepalming | disbelief | exasperation | facepalm | man">🤦🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man facepalming | disbelief | exasperation | facepalm | man">🤦🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man facepalming | disbelief | exasperation | facepalm | man">🤦🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man facepalming | disbelief | exasperation | facepalm | man">🤦🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman facepalming | disbelief | exasperation | facepalm | woman">🤦‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman facepalming | disbelief | exasperation | facepalm | woman">🤦🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman facepalming | disbelief | exasperation | facepalm | woman">🤦🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman facepalming | disbelief | exasperation | facepalm | woman">🤦🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman facepalming | disbelief | exasperation | facepalm | woman">🤦🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman facepalming | disbelief | exasperation | facepalm | woman">🤦🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="shrug | doubt | ignorance | indifference | person shrugging">🤷</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="shrug | doubt | ignorance | indifference | person shrugging">🤷🏻</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="shrug | doubt | ignorance | indifference | person shrugging">🤷🏼</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="shrug | doubt | ignorance | indifference | person shrugging">🤷🏽</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="shrug | doubt | ignorance | indifference | person shrugging">🤷🏾</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="shrug | doubt | ignorance | indifference | person shrugging">🤷🏿</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man shrugging | doubt | ignorance | indifference | man | shrug">🤷‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man shrugging | doubt | ignorance | indifference | man | shrug">🤷🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man shrugging | doubt | ignorance | indifference | man | shrug">🤷🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man shrugging | doubt | ignorance | indifference | man | shrug">🤷🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man shrugging | doubt | ignorance | indifference | man | shrug">🤷🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man shrugging | doubt | ignorance | indifference | man | shrug">🤷🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman shrugging | doubt | ignorance | indifference | shrug | woman">🤷‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman shrugging | doubt | ignorance | indifference | shrug | woman">🤷🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman shrugging | doubt | ignorance | indifference | shrug | woman">🤷🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman shrugging | doubt | ignorance | indifference | shrug | woman">🤷🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman shrugging | doubt | ignorance | indifference | shrug | woman">🤷🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman shrugging | doubt | ignorance | indifference | shrug | woman">🤷🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man getting massage | face | man | massage">💆‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man getting massage | face | man | massage">💆🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man getting massage | face | man | massage">💆🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man getting massage | face | man | massage">💆🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man getting massage | face | man | massage">💆🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man getting massage | face | man | massage">💆🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman getting massage | face | massage | woman">💆‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman getting massage | face | massage | woman">💆🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman getting massage | face | massage | woman">💆🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman getting massage | face | massage | woman">💆🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman getting massage | face | massage | woman">💆🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman getting massage | face | massage | woman">💆🏿‍♀️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="man getting haircut | haircut | man">💇‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="man getting haircut | haircut | man">💇🏻‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="man getting haircut | haircut | man">💇🏼‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="man getting haircut | haircut | man">💇🏽‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="man getting haircut | haircut | man">💇🏾‍♂️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="man getting haircut | haircut | man">💇🏿‍♂️</span></span>
-        <span class="icone_variation" data-variation="" style="display: inline;"><span class="icone  " data-keyword="woman getting haircut | haircut | woman">💇‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FB" style="display: none;"><span class="icone  " data-keyword="woman getting haircut | haircut | woman">💇🏻‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FC" style="display: none;"><span class="icone  " data-keyword="woman getting haircut | haircut | woman">💇🏼‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FD" style="display: none;"><span class="icone  " data-keyword="woman getting haircut | haircut | woman">💇🏽‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FE" style="display: none;"><span class="icone  " data-keyword="woman getting haircut | haircut | woman">💇🏾‍♀️</span></span>
-        <span class="icone_variation" data-variation="1F3FF" style="display: none;"><span class="icone  " data-keyword="woman getting haircut | haircut | woman">💇🏿‍♀️</span></span>
-        <span class="icone  " data-keyword="bust in silhouette | bust | silhouette">👤</span>
-        <span class="icone  " data-keyword="busts in silhouette | bust | silhouette">👥</span>
-        <span class="icone  " data-keyword="man and woman holding hands | couple | hand | hold | man | woman">👫</span>
-        <span class="icone  " data-keyword="two men holding hands | couple | Gemini | man | twins | zodiac">👬</span>
-        <span class="icone  " data-keyword="two women holding hands | couple | hand | woman">👭</span>
-        <span class="icone  " data-keyword="woman kiss man | couple | kiss | man | woman">👩‍❤️‍💋‍👨</span>
-        <span class="icone  " data-keyword="man kiss man | couple | kiss | man">👨‍❤️‍💋‍👨</span>
-        <span class="icone  " data-keyword="woman kiss woman | couple | kiss | woman">👩‍❤️‍💋‍👩</span>
-        <span class="icone  " data-keyword="woman heart man | couple | couple with heart | love | man | woman">👩‍❤️‍👨</span>
-        <span class="icone  " data-keyword="man heart man | couple | couple with heart | love | man">👨‍❤️‍👨</span>
-        <span class="icone  " data-keyword="woman heart woman | couple | couple with heart | love | woman">👩‍❤️‍👩</span>
-        <span class="icone  " data-keyword="man woman boy | family | boy | man | woman">👨‍👩‍👦</span>
-        <span class="icone  " data-keyword="man woman girl | family | girl | man | woman">👨‍👩‍👧</span>
-        <span class="icone  " data-keyword="man woman girl boy | boy | family | girl | man | woman">👨‍👩‍👧‍👦</span>
-        <span class="icone  " data-keyword="man woman boy boy | boy | family | man | woman">👨‍👩‍👦‍👦</span>
-        <span class="icone  " data-keyword="man woman girl girl | family | girl | man | woman">👨‍👩‍👧‍👧</span>
-        <span class="icone  " data-keyword="man man boy | boy | family | man">👨‍👨‍👦</span>
-        <span class="icone  " data-keyword="man man girl | family | girl | man">👨‍👨‍👧</span>
-        <span class="icone  " data-keyword="man man girl boy | boy | family | girl | man">👨‍👨‍👧‍👦</span>
-        <span class="icone  " data-keyword="man man boy boy | boy | family | man">👨‍👨‍👦‍👦</span>
-        <span class="icone  " data-keyword="man man girl girl | family | girl | man">👨‍👨‍👧‍👧</span>
-        <span class="icone  " data-keyword="woman woman boy | boy | family | woman">👩‍👩‍👦</span>
-        <span class="icone  " data-keyword="woman woman girl | family | girl | woman">👩‍👩‍👧</span>
-        <span class="icone  " data-keyword="woman woman girl boy | boy | family | girl | woman">👩‍👩‍👧‍👦</span>
-        <span class="icone  " data-keyword="woman woman boy boy | boy | family | woman">👩‍👩‍👦‍👦</span>
-        <span class="icone  " data-keyword="woman woman girl girl | family | girl | woman">👩‍👩‍👧‍👧</span>
-        <span class="icone  " data-keyword="man boy | boy | family | man">👨‍👦</span>
-        <span class="icone  " data-keyword="man boy boy | boy | family | man">👨‍👦‍👦</span>
-        <span class="icone  " data-keyword="man girl | family | girl | man">👨‍👧</span>
-        <span class="icone  " data-keyword="man girl boy | boy | family | girl | man">👨‍👧‍👦</span>
-        <span class="icone  " data-keyword="man girl girl | family | girl | man">👨‍👧‍👧</span>
-        <span class="icone  " data-keyword="woman boy | boy | family | woman">👩‍👦</span>
-        <span class="icone  " data-keyword="woman boy boy | boy | family | woman">👩‍👦‍👦</span>
-        <span class="icone  " data-keyword="woman girl | family | girl | woman">👩‍👧</span>
-        <span class="icone  " data-keyword="woman girl boy | boy | family | girl | woman">👩‍👧‍👦</span>
-        <span class="icone  " data-keyword="woman girl girl | family | girl | woman">👩‍👧‍👧</span>
-<p>Más emojis <a href="http://smiley.cool/es/emoji-list.php">smiley.cool</a></p></div>
-      </div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <div class="emoji-list">        <span class="icone  " data-keyword="seat | chair">💺</span>
-        <span class="icone  " data-keyword="video game | controller | game">🎮</span>
-        <span class="icone  " data-keyword="joystick | game | video game">🕹️</span>
-        <span class="icone  " data-keyword="slot machine | game | slot">🎰</span>
-        <span class="icone  " data-keyword="mobile phone | iphone | cell | mobile | phone | telephone">📱</span>
-        <span class="icone  " data-keyword="mobile phone with rightwards arrow at left | calling | arrow | cell | mobile | mobile phone with arrow | phone | receive">📲</span>
-        <span class="icone  " data-keyword="black telephone | phone | telephone">☎️</span>
-        <span class="icone  " data-keyword="telephone receiver | phone | receiver | telephone">📞</span>
-        <span class="icone  " data-keyword="pager">📟</span>
-        <span class="icone  " data-keyword="fax machine | fax">📠</span>
-        <span class="icone  " data-keyword="personal computer | computer | laptop computer | pc | personal">💻</span>
-        <span class="icone  " data-keyword="desktop computer | computer | desktop">🖥️</span>
-        <span class="icone  " data-keyword="printer | computer">🖨️</span>
-        <span class="icone  " data-keyword="keyboard | computer">⌨️</span>
-        <span class="icone  " data-keyword="three button mouse | computer | computer mouse">🖱️</span>
-        <span class="icone  " data-keyword="trackball | computer">🖲️</span>
-        <span class="icone  " data-keyword="floppy disk | computer | disk | floppy">💾</span>
-        <span class="icone  " data-keyword="notebook with decorative cover | book | cover | decorated | notebook">📔</span>
-        <span class="icone  " data-keyword="closed book | book | closed">📕</span>
-        <span class="icone  " data-keyword="open book | book | open">📖</span>
-        <span class="icone  " data-keyword="green book | book | green">📗</span>
-        <span class="icone  " data-keyword="blue book | blue | book">📘</span>
-        <span class="icone  " data-keyword="orange book | book | orange">📙</span>
-        <span class="icone  " data-keyword="books | book">📚</span>
-        <span class="icone  " data-keyword="notebook">📓</span>
-        <span class="icone  " data-keyword="ledger | notebook">📒</span>
-        <span class="icone  " data-keyword="page with curl | curl | document | page">📃</span>
-        <span class="icone  " data-keyword="page facing up | document | page">📄</span>
-        <span class="icone  " data-keyword="newspaper | news | paper">📰</span>
-        <span class="icone  " data-keyword="rolled up newspaper | news | newspaper | paper | rolled">🗞️</span>
-        <span class="icone  " data-keyword="bookmark tabs | bookmark | mark | marker | tabs">📑</span>
-        <span class="icone  " data-keyword="bookmark | mark">🔖</span>
-        <span class="icone  " data-keyword="label">🏷️</span>
-        <span class="icone  " data-keyword="money bag | moneybag | bag | dollar | money">💰</span>
-        <span class="icone  " data-keyword="banknote with yen sign | yen | banknote | bill | currency | money | note">💴</span>
-        <span class="icone  " data-keyword="banknote with dollar sign | dollar | banknote | bill | currency | money | note">💵</span>
-        <span class="icone  " data-keyword="banknote with euro sign | euro | banknote | bill | currency | money | note">💶</span>
-        <span class="icone  " data-keyword="banknote with pound sign | pound | banknote | bill | currency | money | note">💷</span>
-        <span class="icone  " data-keyword="money with wings | banknote | bill | fly | money | wings">💸</span>
-        <span class="icone  " data-keyword="credit card | card | credit | money">💳</span>
-        <span class="icone  " data-keyword="chart with upwards trend and yen sign | chart | chart increasing with yen | graph | growth | money | yen">💹</span>
-        <span class="icone  " data-keyword="currency exchange | bank | currency | exchange | money">💱</span>
-        <span class="icone  " data-keyword="envelope | email | letter">✉️</span>
-        <span class="icone  " data-keyword="e-mail symbol | e mail | email | letter | mail">📧</span>
-        <span class="icone  " data-keyword="incoming envelope | e mail | email | envelope | incoming | letter | receive">📨</span>
-        <span class="icone  " data-keyword="envelope with downwards arrow above | envelope with arrow | arrow | e mail | email | envelope | outgoing">📩</span>
-        <span class="icone  " data-keyword="outbox tray | box | letter | mail | outbox | sent | tray">📤</span>
-        <span class="icone  " data-keyword="inbox tray | box | inbox | letter | mail | receive | tray">📥</span>
-        <span class="icone  " data-keyword="package | box | parcel">📦</span>
-        <span class="icone  " data-keyword="closed mailbox with raised flag | mailbox | closed | mail | postbox">📫</span>
-        <span class="icone  " data-keyword="closed mailbox with lowered flag | mailbox closed | closed | lowered | mail | mailbox | postbox">📪</span>
-        <span class="icone  " data-keyword="open mailbox with raised flag | mailbox with mail | mail | mailbox | open | postbox">📬</span>
-        <span class="icone  " data-keyword="open mailbox with lowered flag | mailbox with no mail | lowered | mail | mailbox | open | postbox">📭</span>
-        <span class="icone  " data-keyword="postbox | mail | mailbox">📮</span>
-        <span class="icone  " data-keyword="ballot box with ballot | ballot | box">🗳️</span>
-        <span class="icone  " data-keyword="pencil | pencil2">✏️</span>
-        <span class="icone  " data-keyword="black nib | nib | pen">✒️</span>
-        <span class="icone  " data-keyword="lower left fountain pen | fountain | pen">🖋️</span>
-        <span class="icone  " data-keyword="lower left ballpoint pen | ballpoint | pen">🖊️</span>
-        <span class="icone  " data-keyword="lower left paintbrush | paintbrush | painting">🖌️</span>
-        <span class="icone  " data-keyword="lower left crayon | crayon">🖍️</span>
-        <span class="icone  " data-keyword="memo | pencil">📝</span>
-        <span class="icone  " data-keyword="briefcase">💼</span>
-        <span class="icone  " data-keyword="file folder | file | folder">📁</span>
-        <span class="icone  " data-keyword="open file folder | file | folder | open">📂</span>
-        <span class="icone  " data-keyword="card index dividers | card | dividers | index">🗂️</span>
-        <span class="icone  " data-keyword="calendar | date">📅</span>
-        <span class="icone  " data-keyword="tear-off calendar | calendar | tear off calendar">📆</span>
-        <span class="icone  " data-keyword="spiral note pad | note | pad | spiral | spiral notepad">🗒️</span>
-        <span class="icone  " data-keyword="spiral calendar pad | calendar | pad | spiral">🗓️</span>
-        <span class="icone  " data-keyword="card index | card | index | rolodex">📇</span>
-        <span class="icone  " data-keyword="chart with upwards trend | chart | chart increasing | graph | growth | trend | upward">📈</span>
-        <span class="icone  " data-keyword="chart with downwards trend | chart | chart decreasing | down | graph | trend">📉</span>
-        <span class="icone  " data-keyword="bar chart | bar | chart | graph">📊</span>
-        <span class="icone  " data-keyword="clipboard">📋</span>
-        <span class="icone  " data-keyword="pushpin | pin">📌</span>
-        <span class="icone  " data-keyword="round pushpin | pin | pushpin">📍</span>
-        <span class="icone  " data-keyword="paperclip">📎</span>
-        <span class="icone  " data-keyword="linked paperclips | link | paperclip">🖇️</span>
-        <span class="icone  " data-keyword="straight ruler | ruler | straight edge">📏</span>
-        <span class="icone  " data-keyword="triangular ruler | ruler | set | triangle">📐</span>
-        <span class="icone  " data-keyword="black scissors | scissors | cutting | tool">✂️</span>
-        <span class="icone  " data-keyword="card file box | box | card | file">🗃️</span>
-        <span class="icone  " data-keyword="file cabinet | cabinet | file | filing">🗄️</span>
-        <span class="icone  " data-keyword="wastebasket">🗑️</span>
-<p>Más emojis <a href="http://smiley.cool/es/emoji-list.php">smiley.cool</a></p></div>
-      </div>
-    </div>
-  </div>
-  
-</div>
-
-
-
-
-
-           
+                <div class="button"  >
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
-    </body>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>
